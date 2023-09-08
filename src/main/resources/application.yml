@@ -1,0 +1,47 @@
+server:
+  servlet.context-path: /api
+  port: 8080
+  session:
+    timeout: 1800
+
+spring.profiles.active: local
+
+spring:
+  config:
+    import:
+      - optional:config/database.yml
+  jackson:
+    serialization.FAIL_ON_EMPTY_BEANS: false
+
+  http:
+    log-request-etails: true
+
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
+
+springdoc:
+  version: v1.0.0
+  swagger-ui:
+    disable-swagger-default-url: true
+    path: /docs
+  show-actuator: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
+
+  # MIME 타입 추가
+  web:
+    media:
+      type:
+        MIME_TYPE_EXTENTION_MAPPING:
+          ppt: application/vnd.ms-powerpoint
+          pptx: application/vnd.openxmlformats-officedocument.presentationml.presentation
+

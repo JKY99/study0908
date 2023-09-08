@@ -1,0 +1,18 @@
+---
+  spring.config.activate.on-profile: local
+
+  spring:
+    # Datasource Configuration
+    datasource:
+      url: jdbc:mysql://127.0.0.1:33061/study0908
+      username: root
+      password: dnflwlq1
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      hikari:
+        maximum-pool-size: 10
+    jpa:
+      show-sql: true
+      properties:
+        hibernate:
+          format_sql: true
+          default_batch_fetch_size: 20
